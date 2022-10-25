@@ -1,6 +1,9 @@
-# Helium data-only Hotspot
+# Helium data-only Hotspot with the balena Browser block
 
-This is a balena version based on the Nebra helium hotspot.
+This is a balena version based on the Nebra helium data-only hotspot running along with the [browser block](https://github.com/balenablocks/browser) and the [audio block](https://github.com/balenablocks/audio).
+
+This is the perfect configuration to run a data-only Helium Hotspot with a digital signage display.
+
 
 ## Disclaimer
 
@@ -60,6 +63,8 @@ Once the device is online and the services `packet-forwarder` and `gatewayrs` ar
 * Create the variable for all the services `VARIANT` with your hardware definition. During the test is being used a Raspberry Pi 4 with RAK2287 LoRa concentrator and the `VARIANT` is defined  `DIY-RAK2287`. You can find here [the list of hardware compatible](https://github.com/NebraLtd/helium-hardware-definitions). 
 
 * Create the variable for all the services `REGION_OVERRIDE` with your LoRa region (e.g. `EU868`). You can find here [the list of LoRa regions compatible](https://github.com/NebraLtd/hm-pktfwd).
+
+* Create the variable `KIOSK` and set it to 1 and then `LAUNCH_URL` and add the URL that you would like to show on the display. In case that you might need other settings, feel free to add more [Enviroment Variables](https://github.com/balenablocks/browser#environment-variables) to the device/fleet.
 
 At that moment the hotspot should be running showing some errors on connecting to the Blockchain on the balenaCloud Logs.
 
@@ -170,6 +175,11 @@ Password: [hidden]
 ```
 
 And now that should have worked.
+
+## Digital Signage
+
+Connect your device using the HDMI port to a display and that might automatically work.
+
 
 ## Backup your gateway_key.bin file
 

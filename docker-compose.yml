@@ -33,8 +33,25 @@ services:
       - FIRMWARE_VERSION=v1.0.0-alpha.21
     labels:
       io.balena.features.balena-api: '1'
+  browser:
+    image: bhcr.io/balenablocks/browser-aarch64
+    privileged: true
+    network_mode: host
+    ports:
+      - '5011'
+      - '35173'
+    volumes:
+      - 'settings:/data'
+  audio:
+    image: balenablocks/audio
+    privileged: true
+    ports:
+      - '4317:4317'
+    environment:
+      AUDIO_OUTPUT: RPI_HDMI0
 
 volumes:
+  settings: {}
   miner-storage:
   miner-log:
   pktfwdr:
